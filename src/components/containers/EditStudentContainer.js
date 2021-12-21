@@ -64,8 +64,7 @@ class EditStudentContainer extends Component {
             alert("Please enter a valid gpa between 0.0 and 4.0")
             return 
         }
-        // editedStudent = Object.keys(editedStudent).forEach((key) => editedStudent[key] == null && delete editedStudent[key]);
-        // console.log(editedStudent)
+ 
         await this.props.editStudent(editedStudent);
 
         this.setState({

@@ -22,13 +22,6 @@ class EditCampusContainer extends Component {
     componentDidMount() {
         //getting campus ID from url
         this.props.fetchCampus(this.props.match.params.id);
-
-        // this.setState({
-        //     name: this.props.campus.name,
-        //     address: this.props.campus.address,
-        //     description: this.props.campus.name.description,
-        //     imageUrl: this.props.campus.name.imageUrl
-        // })
     }
         
 
@@ -61,8 +54,7 @@ class EditCampusContainer extends Component {
         if(!editedCampus.imageUrl) {
             editedCampus.imageUrl = this.props.campus.imageUrl
         }
-        // editedCampus = Object.keys(editedCampus).forEach((key) => editedCampus[key] == null && delete editedCampus[key]);
-        // console.log(editedCampus)
+
         await this.props.editCampus(editedCampus);
 
         this.setState({
