@@ -1,5 +1,6 @@
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from "react-router-dom";
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -37,6 +38,17 @@ const NewCampusView = (props) => {
 
   return (
     <div className={classes.root}>
+      <div>
+        <Link to={`/`}>
+          <button style={{marginRight: '10px'} }>Home</button>
+        </Link>
+        <Link to={`/students`}>
+          <button style={{marginTop: '10px'}}>All students </button>
+        </Link>   
+        <Link to={`/campuses`}>
+          <button style={{marginLeft: '10px'}}>All campuses </button>
+        </Link>   
+      </div>   
       <div className={classes.formContainer}>
         <div className={classes.formTitle}>
           <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>

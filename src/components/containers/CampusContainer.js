@@ -4,6 +4,7 @@ import { fetchCampusThunk } from "../../store/thunks";
 
 import { CampusView } from "../views";
 
+//Single Campus page
 class CampusContainer extends Component {
   componentDidMount() {
     //getting campus ID from url
