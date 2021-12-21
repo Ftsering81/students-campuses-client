@@ -21,10 +21,10 @@ const AllCampusesView = (props) => {
   }
 
   return (
-    <div>
+    <div style={{marginLeft: '10px'}}>
       <div>
         <Link to={`/`}>
-          <button style={{marginRight: '10px'} }>Home</button>
+          <button style={{marginRight: '15px'} }>Home</button>
         </Link>
         <Link to={`/students`}>
           <button style={{marginTop: '10px'}}>All students </button>
