@@ -21,7 +21,7 @@ User can:
   - [x] navigate to any student’s single student view 
   - [x] delete the campus 
   - [ ] edit campus information (including adding/removing students)
-    - [ ] with a validated form displaying real-time error messages
+    - [x] with a validated form displaying real-time error messages
 - [x] can navigate to all students view, and
   - [x] see a list of all students in the database
   - [x] see an informative message if no students exist
@@ -33,4 +33,4 @@ User can:
   - [x] navigate to single campus view of the student’s enrolled campus
   - [x] delete the student
   - [ ] edit the student’s information (including campus s/he is enrolled at)
-    - [ ] with a validated form displaying real-time error messages
+    - [x] with a validated form displaying real-time error messages
