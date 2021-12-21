@@ -12,7 +12,7 @@ const CampusView = (props) => {
       return(
         campus.students.map( student => {
           let name = student.firstname + " " + student.lastname;
-          let link = <Link to={`/students/${student.id}`}> {name} </Link>
+          let link = <h3><Link to={`/students/${student.id}`}> {name} </Link></h3>
           return (<li key={student.id}>{link}</li>);
         })
       );
@@ -31,11 +31,13 @@ const CampusView = (props) => {
         <button style={{marginLeft: '10px'}}>All campuses </button>
       </Link>       
 
-      <h1>{campus.name}</h1>
-      <p> Description: {campus.description}</p>
-      <p> Address: {campus.address}</p>
-      <p> Campus ID: {campus.id} </p>
-      <p> Students: </p>
+      <h1> {campus.name} <Link to={`/editcampus/${campus.id}`}>
+        <button style={{marginLeft: '30px'}}> Edit Campus </button></Link> 
+      </h1>
+      <h3> Description: {campus.description}</h3>
+      <h3> Address: {campus.address}</h3>
+      <h3> Campus ID: {campus.id} </h3>
+      <h3> Students: </h3>
       <ul>
         {studentsList()}
       </ul>
