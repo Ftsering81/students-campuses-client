@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import NewStudentView from '../views/NewStudentView';
-import { addStudentThunk, fetchCampusThunk} from '../../store/thunks';
+import { addStudentThunk} from '../../store/thunks';
 
 
 class NewStudentContainer extends Component {
@@ -14,6 +14,8 @@ class NewStudentContainer extends Component {
           lastname: "", 
           campusId: null, 
           email: "",
+          imageUrl: "",
+          gpa: "",
           redirect: false, 
           redirectId: 0
         };
@@ -45,20 +47,15 @@ class NewStudentContainer extends Component {
           alert("Email is required")
           return
         }
-
-        // Get the campus for the campus id user entered. If undefined, means campus not in our list of campuses.
-        let campus = await this.props.getCampus(this.state.campusId);
-        if(campus === undefined) {
-          alert("The campus for the campus ID provided is not in the system")
-          return
-        }
         //Error checking ends
 
         let student = {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
             campusId: this.state.campusId,
-            email: this.state.email
+            email: this.state.email,
+            imageUrl: this.state.imageUrl,
+            gpa: this.state.gpa,
         };
         
         let newStudent = await this.props.addStudent(student);
@@ -68,6 +65,8 @@ class NewStudentContainer extends Component {
           lastname: "", 
           campusId: null, 
           email: "",
+          imageUrl: "",
+          gpa: "",
           redirect: true, 
           redirectId: newStudent.id
         });
@@ -79,7 +78,7 @@ class NewStudentContainer extends Component {
 
     render() {
         if(this.state.redirect) {
-          return (<Redirect to={`/student/${this.state.redirectId}`}/>)
+          return (<Redirect to={`/students/${this.state.redirectId}`}/>)
         }
         return (
           <NewStudentView 
@@ -93,7 +92,6 @@ class NewStudentContainer extends Component {
 const mapDispatch = (dispatch) => {
     return({
         addStudent: (student) => dispatch(addStudentThunk(student)),
-        getCampus: (id) => dispatch(fetchCampusThunk(id))
     })
 }
 

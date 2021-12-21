@@ -3,7 +3,21 @@ import { Link } from "react-router-dom";
 
 const AllCampusesView = (props) => {
   if (!props.allCampuses.length) {
-    return <div>There are no campuses.</div>;
+    return(<div>
+            <Link to={`/`}>
+              <button style={{marginRight: '10px'} }>Home</button>
+            </Link>
+            <Link to={`/students`}>
+              <button style={{marginTop: '10px'}}>All students </button>
+            </Link>
+              <h1> Campuses </h1>
+              <p> There are no campuses.</p>
+              <br/>
+            <Link to={`/newcampus`}>
+              <button>Add New Campus</button>
+            </Link>
+            </div>
+    );
   }
 
   return (
@@ -20,7 +34,7 @@ const AllCampusesView = (props) => {
       
       {props.allCampuses.map((campus) => (
         <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
+          <Link to={`/campuses/${campus.id}`}>
             <h1>{campus.name}</h1>
           </Link>
           <p>{campus.description}</p>
